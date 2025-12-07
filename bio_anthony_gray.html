@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestro Alexander Vanevski - Biography</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- SAME CSS VARIABLES AS LANDING PAGE --- */
+        :root {
+            --color-primary: #4b274d;
+            --color-secondary: #fee7c0;
+            --color-text: #2a2a2a;
+            --color-bg-light: #fdfbf7;
+            --color-white: #ffffff;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --nav-height: 70px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.8; /* Increased line height for readability */
+            background-color: var(--color-bg-light);
+
+
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Re-using Nav Styles for consistency */
+        nav {
+            position: fixed;
+            top: 0; width: 100%; height: var(--nav-height);
+            background-color: var(--color-primary);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%; z-index: 1000;
+            border-bottom: 2px solid var(--color-secondary);
+        }
+
+        .logo {
+            display: flex;
+
+            align-items: center;
+            height: 100%;
+
+            font-family: var(--font-heading);
+            color: var(--color-secondary);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo img{
+            height: var(--nav-height);
+            padding: 10px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .back-link { color: var(--color-secondary); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+
+        /* --- BIO PAGE SPECIFIC STYLES --- */
+        .bio-wrapper {
+            max-width: 800px;
+            margin: 120px auto 80px; /* Top margin accounts for fixed nav */
+            padding: 0 20px;
+
+            flex: 1;
+        }
+
+        .bio-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .bio-portrait {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 4px; /* Slight round, or make 50% for circle */
+            border: 5px solid var(--color-secondary);
+            box-shadow: 0 15px 30px rgba(75, 39, 77, 0.2);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .role-subtitle {
+            font-family: var(--font-heading);
+            color: #666;
+            font-size: 1.5rem;
+            font-style: italic;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .bio-content {
+            font-size: 1.1rem;
+            text-align: justify; /* Or 'left' depending on preference */
+            color: #333;
+        }
+
+        .bio-content p {
+            margin-bottom: 25px;
+        }
+
+        /* Drop cap for the first letter */
+        /*
+        .bio-content p:first-of-type::first-letter {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: var(--color-primary);
+            float: left;
+            margin-right: 10px;
+            line-height: 0.8;
+        }
+        */
+
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="content/logo.png" alt="International Piano Week Logo">
+        </div>
+        <a href="index.html" class="back-link">← Back to Event</a>
+    </nav>
+
+    <section class="bio-wrapper">
+        <div class="bio-header">
+            <img src="content/profile/profile_anthony_gray.jpg" alt="Alexander Vanevski" class="bio-portrait">
+            
+            <h1>Anthony Gray</h1>
+            <span class="role-subtitle">Artist</span>
+        </div>
+
+        <div class="bio-content">
+            <p>
+                Dr. Anthony Gray is currently an Associate Professor of Practice (Collaborative Piano) at
+                Southern Illinois University - Carbondale. He held previous positions as Adjunct Instructor in
+                Piano and Collaborative Pianist at The University of Virginia’s College at Wise as well as
+                Collaborative Pianist at East Tennessee State University.
+                Dr. Gray is active in performance as both a collaborator and a soloist. As a collaborative
+                pianist he was a Resident Artist at Pittsburgh Festival Opera and a pianist/coach intern at Music
+                On Site, Inc in Wichita, KS. He has accompanied voice lessons and master classes for worldrenown
+                artists including Mildred Miller, Marianne Cornetti, Ollie Watts-Davis and Casey
+                Robards. As a soloist, he received awards in multiple competitions including the Philharmonic
+                Society of Arlington's Young Artist Competition, Music International Grand Prix and Pittsburgh
+                Concert Society's Major Auditions. In summer 2025, he was an invited guest artist for
+                International Piano Week held at Cushing Academy in Ashburnham, MA. In addition to
+                performing and teaching, he regularly presents his research at conferences of the College Music
+                Society (CMS) and Music Teachers National Association (MTNA). His article “How to Follow
+                the Score: Unlocking Notational Awareness and Understanding” will appear in an upcoming
+                edition of American Music Teacher.
+                Dr. Gray graduated summa cum laude from East Tennessee State University with a
+                Bachelor of Music in Piano Performance where he received the Outstanding Student Award and
+                was a Fine and Performing Arts Scholar in the Honors College. He completed both his Master of
+                Music and Doctor of Musical Arts in Collaborative Piano at West Virginia University where he
+                received a Graduate Teaching Assistantship for both degrees as an Opera Workshop Accompanist
+                and Class Piano/Private Piano Instructor. He studied with Cherry Smith, Dr. Chih-Long Hu, Dr.
+                Esther Park, Dr. Ching-Wen Hsiao and Dr. Lucy Mauro.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Symphony Events Organization</p>
+    </footer>
+
+</body>
+</html>
