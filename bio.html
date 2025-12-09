@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Biography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --color-primary: #4b274d;
+            --color-secondary: #fee7c0;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --nav-height: 70px;
+        }
+
+        /* STICKY FOOTER SETUP */
+        body {
+            font-family: var(--font-body);
+            background-color: #fdfbf7;
+            color: #333;
+            margin: 0;
+            display: flex;        /* Enable Flexbox */
+            flex-direction: column; /* Stack vertically */
+            min-height: 100vh;    /* Force full viewport height */
+        }
+
+        nav {
+            background: var(--color-primary);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            border-bottom: 2px solid var(--color-secondary);
+        }
+
+        .logo { color: var(--color-secondary); font-family: var(--font-heading); font-size: 1.5rem; font-weight: bold; }
+        .back-link { color: var(--color-secondary); text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+
+        /* CONTENT WRAPPER */
+        .bio-wrapper {
+            max-width: 800px;
+            margin: 80px auto 60px; /* Top margin reduced slightly as nav is not fixed here (optional) */
+            padding: 40px 20px;
+            flex: 1; /* GROWS to fill empty space, pushing footer down */
+        }
+
+        .bio-header { text-align: center; margin-bottom: 50px; }
+        
+        .bio-portrait {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%; /* Circle looks nice for profiles */
+            border: 6px solid var(--color-secondary);
+            box-shadow: 0 10px 25px rgba(75, 39, 77, 0.15);
+            margin-bottom: 30px;
+        }
+
+        h1 { font-family: var(--font-heading); color: var(--color-primary); font-size: 3rem; margin: 0 0 10px; }
+        .role-subtitle { font-family: var(--font-heading); color: #888; font-size: 1.4rem; font-style: italic; }
+        
+        .bio-content { font-size: 1.15rem; line-height: 1.8; color: #444; }
+        .bio-content p { margin-bottom: 20px; }
+
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto; /* Safety backup for sticky footer */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Symphony Gala</div>
+        <a href="index.html" class="back-link">← Back to Event</a>
+    </nav>
+
+    <section class="bio-wrapper" id="bio-container"></section>
+
+    <footer>
+        <p>&copy; 2025 Symphony Events Organization</p>
+    </footer>
+
+    <script src="data.js"></script>
+
+    <script>
+        // 1. Get the ID from the URL (e.g. ?id=vanevski)
+        const params = new URLSearchParams(window.location.search);
+        const currentId = params.get('id');
+
+        // 2. Find the object in data.js
+        const teacher = facultyData.find(person => person.id === currentId);
+        const container = document.getElementById('bio-container');
+
+        if (teacher) {
+            // Convert \n to <p> tags for formatting
+            const formattedBio = teacher.bio.split('\n\n').map(p => `<p>${p}</p>`).join('');
+
+            container.innerHTML = `
+                <div class="bio-header">
+                    <img src="${teacher.image}" alt="${teacher.name}" class="bio-portrait">
+                    <h1>${teacher.name}</h1>
+                    <span class="role-subtitle">${teacher.role}</span>
+                </div>
+                <div class="bio-content">
+                    ${formattedBio}
+                </div>
+            `;
+            document.title = `${teacher.name} - Biography`;
+        } else {
+            container.innerHTML = `<h1 style="text-align:center; color: var(--color-primary);">Artist Not Found</h1>`;
+        }
+    </script>
+</body>
+</html>
