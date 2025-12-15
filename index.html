@@ -464,6 +464,16 @@
             .timeline-item::before { left: -39px; } /* Adjust for mobile line */
             .timeline-time { margin-bottom: 5px; }
         }
+
+        /* @supports checks if the browser understands a specific rule.
+        Only iOS (iPhone/iPad) understands '-webkit-touch-callout: none'.
+        */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                background-attachment: scroll !important;
+                background-position: center center;
+            }
+        }
     </style>
 </head>
 <body>
