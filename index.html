@@ -465,13 +465,14 @@
             .timeline-time { margin-bottom: 5px; }
         }
 
-        /* @supports checks if the browser understands a specific rule.
-        Only iOS (iPhone/iPad) understands '-webkit-touch-callout: none'.
-        */
-        @supports (-webkit-touch-callout: none) {
-            .hero-content{
+        /* FORCE FIX for all mobile/tablet devices */
+        @media screen and (max-width: 1024px) {
+            .hero {
+                /* Override specifically with !important */
                 background-attachment: scroll !important;
-                background-position: center center;
+                background-position: center center !important;
+                background-size: cover !important;
+                background-repeat: no-repeat !important;
             }
         }
     </style>
